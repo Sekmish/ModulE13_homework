@@ -1,0 +1,48 @@
+| {% load static %}
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(
+      content="IE=edge" 
+      http-equiv="X-UA-Compatible"
+      )
+    meta(
+      content="width=device-width, initial-scale=1.0" 
+      name="viewport"
+      )
+    link(
+      rel="stylesheet" 
+      href="{% static 'main.css' %}"
+      )
+    title Message List
+  body
+    .test
+      h1 Привет ПИЗДЮКИ
+    ul
+      | {% for message in text %}
+      li {{ message.content }} - {{ message.sender.username }}
+      | {% endfor %}
+    button#getLocationBtn Получить информацию о временной зоне
+    #timezoneInfo
+    ul
+      li
+        a(
+          target="myframe" 
+          href="https://www.google.ru"
+          ) Google
+      li
+        a(
+          target="myframe" 
+          href="http://www.yandex.ru/"
+          ) Yandex
+      li
+        a(
+          target="myframe" 
+          href="https://duckduckgo.com/"
+          ) DuckDuckGo
+    iframe(
+      name="myframe" 
+      src="http://example.com/"
+      )
+script(src="{% static 'main.js' %}")
